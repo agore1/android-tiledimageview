@@ -18,7 +18,6 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 
 import com.austingore.tiledimageview.layouts.FixedLayout;
-import com.austingore.tiledimageview.layouts.FixedLayout.LayoutParams;
 import com.austingore.tiledimageview.tiles.MapTile;
 import com.austingore.tiledimageview.tiles.MapTileView;
 import com.austingore.tiledimageview.tiles.MapTileViewFactory;

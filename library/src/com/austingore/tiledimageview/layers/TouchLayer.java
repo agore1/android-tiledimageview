@@ -10,7 +10,6 @@ import android.widget.FrameLayout;
 import com.austingore.tiledimageview.animation.Animator;
 import com.austingore.tiledimageview.geom.XPoint;
 import com.austingore.tiledimageview.layouts.FixedLayout;
-import com.austingore.tiledimageview.layouts.FixedLayout.LayoutParams;
 import com.austingore.tiledimageview.listeners.TouchLayerEventListener;
 import com.austingore.tiledimageview.widgets.Scroller;
 

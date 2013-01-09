@@ -8,8 +8,6 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.austingore.tiledimageview.MapView;
-
 public class DemoActivity1 extends Activity
 {
     private MapView mapView;

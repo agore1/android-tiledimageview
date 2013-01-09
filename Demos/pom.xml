@@ -24,6 +24,7 @@
             <groupId>com.austingore.tiledimageview</groupId>
             <artifactId>library</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <type>apklib</type>
         </dependency>
 
         <dependency>

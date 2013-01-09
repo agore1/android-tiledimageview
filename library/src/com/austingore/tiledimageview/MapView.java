@@ -21,7 +21,6 @@ import com.austingore.tiledimageview.layers.MarkerLayer;
 import com.austingore.tiledimageview.layers.PathLayer;
 import com.austingore.tiledimageview.layers.TileLayer;
 import com.austingore.tiledimageview.layers.TouchLayer;
-import com.austingore.tiledimageview.layouts.FixedLayout;
 import com.austingore.tiledimageview.listeners.TouchLayerEventListener;
 import com.austingore.tiledimageview.zoom.ZoomLevel;
 import com.austingore.tiledimageview.zoom.ZoomManager;

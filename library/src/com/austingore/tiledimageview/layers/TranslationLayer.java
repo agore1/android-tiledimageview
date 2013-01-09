@@ -1,7 +1,6 @@
 package com.austingore.tiledimageview.layers;
 
 import com.austingore.tiledimageview.layouts.FixedLayout;
-import com.austingore.tiledimageview.layouts.FixedLayout.LayoutParams;
 
 import android.content.Context;
 import android.view.View;
