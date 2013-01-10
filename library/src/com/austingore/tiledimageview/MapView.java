@@ -626,7 +626,7 @@ mapView.addZoomLevel("level2/%col%-%row%.jpg");  // will be 125x125</pre>
 			
 			double minimumScaleX = (double) getWidth() / (double) mapWidth;
 			double minimumScaleY = (double) getHeight() / (double) mapHeight;
-			minScale = Math.max(minimumScaleX, minimumScaleY);
+			minScale = Math.min(minimumScaleX, minimumScaleY);   //austin changed from max to min
 			
 			touchLayer.setScaleLimits(minScale, maxScale);
 			
