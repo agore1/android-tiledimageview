@@ -692,7 +692,7 @@ mapView.addZoomLevel("level2/%col%-%row%.jpg");  // will be 125x125</pre>
 			computedScale = (float) zs.scale;
 			if(zs.level != lastLevel){
 				zoomManager.setZoom(zs.level);			
-				tileLayer.update(zoomManager.getZoomLevel());
+				tileLayer.update(zoomManager.getZoomLevel());                 //austin- check this out
 			}
 			tileLayer.setScale(computedScale);
 			requestUpdate();
@@ -815,7 +815,7 @@ mapView.addZoomLevel("level2/%col%-%row%.jpg");  // will be 125x125</pre>
 			switch (message.what) {
 			case RENDER : 
 				updateVisibleRect();
-				tileLayer.renderTiles(visible, computedScale);
+				tileLayer.renderTiles(visible, computedScale);                 //austin - check this out
 				break;
 			}
     	}

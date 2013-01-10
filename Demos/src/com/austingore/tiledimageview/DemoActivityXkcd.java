@@ -26,7 +26,7 @@ public class DemoActivityXkcd extends Activity
 //        int mapHeight = 3000;
 
         mapView = new MapView(this);
-        mapView.setBackgroundColor(0xFFF5F5F5);
+        mapView.setBackgroundColor(0xFFCD5C5C);
         mapView.setTileTranstionEnabled(true);
         mapView.setTileTransitionDuration(400);
 //        mapView.setBaseMapSize(mapWidth, mapHeight);
