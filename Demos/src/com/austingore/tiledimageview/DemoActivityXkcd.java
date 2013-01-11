@@ -22,27 +22,18 @@ public class DemoActivityXkcd extends Activity
         FrameLayout frame = new FrameLayout(this);
         setContentView(frame);
 
-//        int mapWidth = 3000;
-//        int mapHeight = 3000;
-
         mapView = new MapView(this);
         mapView.setBackgroundColor(0xFFCD5C5C);
         mapView.setTileTranstionEnabled(true);
         mapView.setTileTransitionDuration(400);
-//        mapView.setBaseMapSize(mapWidth, mapHeight);
-//        mapView.setMinScale(0.4);
 
         //add a tile set of images - first set to be added are the ones that will be used when all the way zoomed in on.
         //last tile set added will be the one used for most zoomed out view
 //
-        mapView.addZoomLevel(2048, 2048,"tiles/xkcd/500-16/xkcd_500_%col%_%row%.jpg", "downsamples/xkcd/xkcdWaterMark.jpg", 512, 512);    //does the downsample have to be the same for each?
-//        mapView.addZoomLevel(1024, 1024,"tiles/xkcd/500-4/xkcd_100_%col%_%row%.jpg", "downsamples/xkcd/xkcdWaterMark.jpg", 512, 512);     // maybe if the info was different, like map name sizes, etc.
+        mapView.addZoomLevel(2048, 2048,"tiles/xkcd/500-16/xkcd_500_%col%_%row%.jpg", "downsamples/xkcd/xkcdWaterMark.jpg");
 
-//        mapView.addZoomLevel(1024, 1024,"downsamples/xkcd/xkcd500down.jpg", "downsamples/xkcd/xkcd500down.jpg");
-//        mapView.addZoomLevel(4096, 4096,"tiles/xkcd/xkcd/1000_100_%col%_%row%.jpg", "downsamples/xkcd/xkcd500down.jpg");
-//        mapView.addZoomLevel(1024, 1024,"tiles/xkcd/xkcd/500-4_100_%col%_%row%.jpg", "downsamples/xkcd/xkcd500down.jpg");
-
-
+//        This zoom level still causes problems, rendering of upper zoom level fails at full zoom out.
+        mapView.addZoomLevel(1024, 1024,"tiles/xkcd/500-4/xkcd_100_%col%_%row%.jpg", "downsamples/xkcd/xkcdWaterMark.jpg");
 
         mapView.setMarkerAnchorPoints(0.5f, 1.0f);
         mapView.registerGeolocator(42.379676, -71.040280, 42.346550, -71.094919);

@@ -34,9 +34,7 @@ public class DemoActivityTiger extends Activity
 
         mapView.addZoomLevel(1600, 1200, "tiles/tiger/tiger1600/crop_%row%_%col%.png","downsamples/tiger/tiger400.jpg");
         mapView.addZoomLevel(800, 600, "tiles/tiger/tiger800/crop_%row%_%col%.png","downsamples/tiger/tiger400.jpg");
-        mapView.addZoomLevel(400, 300,"tiles/tiger/tiger400/crop_%row%_%col%.png", "downsamples/tiger/tiger400.jpg");    //does the downsample have to be the same for each?
-             // maybe if the info was different, like map name sizes, etc.
-
+        mapView.addZoomLevel(400, 300,"tiles/tiger/tiger400/crop_%row%_%col%.png", "downsamples/tiger/tiger400.jpg");
         mapView.setMarkerAnchorPoints(0.5f, 1.0f);
         mapView.registerGeolocator(42.379676, -71.040280, 42.346550, -71.094919);
         mapView.initialize();
@@ -106,7 +104,6 @@ public class DemoActivityTiger extends Activity
         });
 
         FrameLayout.LayoutParams mapViewLayout = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 2);
-//        FrameLayout.LayoutParams meh = new FrameLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT, 1.0f);
         frame.addView(mapView, mapViewLayout);
 
     }
