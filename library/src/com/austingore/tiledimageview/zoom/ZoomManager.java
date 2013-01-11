@@ -1,5 +1,10 @@
 package com.austingore.tiledimageview.zoom;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.austingore.tiledimageview.MapView;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class ZoomManager {
@@ -63,7 +68,7 @@ public class ZoomManager {
 	}
 	
 	public void addZoomLevel(int wide, int tall, String pattern, String sample){
-		ZoomLevel level = new ZoomLevel(wide, tall, pattern, sample);
+        ZoomLevel level = new ZoomLevel(wide, tall, pattern, sample);
 		levels.add(level);
 		setZoom(0);
 	}

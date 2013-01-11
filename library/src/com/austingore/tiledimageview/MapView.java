@@ -1,9 +1,13 @@
 package com.austingore.tiledimageview;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Handler;
@@ -344,7 +348,33 @@ mapView.addZoomLevel("level2/%col%-%row%.jpg");  // will be 125x125</pre>
 	 * @param sample (String) string path to the location of a downsampled image
 	 */
 	public void addZoomLevel(int wide, int tall, String pattern, String sample){
-		zoomManager.addZoomLevel(wide, tall, pattern, sample);
+//test top left tile for size to determine default for all tiles of this level
+        int testHeight = 256;
+        int testWidth = 256;
+
+        String path = pattern;
+        path = path.replace("%col%", "0");
+        path = path.replace("%row%", "0");
+
+        try {
+            InputStream input = getContext().getAssets().open(path);
+
+            try {
+                BitmapFactory bitmapFact = new BitmapFactory();
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inJustDecodeBounds = true;
+                Bitmap testTile = bitmapFact.decodeStream(input, null, options);
+
+                testHeight = options.outHeight;
+                testWidth = options.outWidth;
+            } catch(OutOfMemoryError oome){
+                    Log.d("TileLayer", "Out Of Memory on downsample");
+            }
+
+        } catch(IOException e){
+                Log.d("TileLayer", "Problem Getting Downsample: " + e.getMessage());
+            }
+        zoomManager.addZoomLevel(wide, tall, pattern, sample, testWidth, testHeight);
 	}
 	
 	/**

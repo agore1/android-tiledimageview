@@ -35,9 +35,9 @@ public class DemoActivityXkcd extends Activity
         //add a tile set of images - first set to be added are the ones that will be used when all the way zoomed in on.
         //last tile set added will be the one used for most zoomed out view
 //
-        mapView.addZoomLevel(2048, 2048,"tiles/xkcd/xkcd/500-16_500_%col%_%row%.jpg", "downsamples/xkcd/xkcd500down.jpg");    //does the downsample have to be the same for each?
-        mapView.addZoomLevel(1024, 1024,"tiles/xkcd/xkcd/500-4_100_%col%_%row%.jpg", "downsamples/xkcd/xkcd500down.jpg");     // maybe if the info was different, like map name sizes, etc.
-//
+        mapView.addZoomLevel(2048, 2048,"tiles/xkcd/500-16/xkcd_500_%col%_%row%.jpg", "downsamples/xkcd/xkcdWaterMark.jpg", 512, 512);    //does the downsample have to be the same for each?
+//        mapView.addZoomLevel(1024, 1024,"tiles/xkcd/500-4/xkcd_100_%col%_%row%.jpg", "downsamples/xkcd/xkcdWaterMark.jpg", 512, 512);     // maybe if the info was different, like map name sizes, etc.
+
 //        mapView.addZoomLevel(1024, 1024,"downsamples/xkcd/xkcd500down.jpg", "downsamples/xkcd/xkcd500down.jpg");
 //        mapView.addZoomLevel(4096, 4096,"tiles/xkcd/xkcd/1000_100_%col%_%row%.jpg", "downsamples/xkcd/xkcd500down.jpg");
 //        mapView.addZoomLevel(1024, 1024,"tiles/xkcd/xkcd/500-4_100_%col%_%row%.jpg", "downsamples/xkcd/xkcd500down.jpg");

@@ -30,10 +30,11 @@ public class DemoActivity1 extends Activity
 
         //add a tile set of images - first set to be added are the ones that will be used when all the way zoomed in on.
         //last tile set added will be the one used for most zoomed out view
-//        mapView.addZoomLevel("tiles/alexis_25_%col%_%row%.jpg", "downsamples/alexis.jpg");
-        mapView.addZoomLevel(1109, 2048,"tiles/alexis/alexis_100_%col%_%row%.jpg", "downsamples/alexis.jpg");
-        mapView.addZoomLevel(683, 1024,"tiles/alexis/alexis_50_%col%_%row%.jpg", "downsamples/alexis.jpg");
-        mapView.addZoomLevel(341, 512,"tiles/alexis/alexis_25_%col%_%row%.jpg", "downsamples/alexis.jpg");
+        //had to stitch together, then downsample my own downnsample: given one (alexis.jpg caused boundary between tiles to be shown)
+        mapView.addZoomLevel(1365, 2048,"tiles/alexis/alexis100/alexis_100_%col%_%row%.jpg", "downsamples/alexis/alexis2.jpg");
+        mapView.addZoomLevel(683, 1024,"tiles/alexis/alexis50/alexis_50_%col%_%row%.jpg", "downsamples/alexis/alexis2.jpg");
+        mapView.addZoomLevel(341, 512,"tiles/alexis/alexis25/alexis_25_%col%_%row%.jpg", "downsamples/alexis/alexis2.jpg");
+
 
 
 
@@ -41,8 +42,6 @@ public class DemoActivity1 extends Activity
         mapView.registerGeolocator(42.379676, -71.040280, 42.346550, -71.094919);
         mapView.initialize();
 
-
-        //adding the marker seems to work...
         ImageView marker = new ImageView(this);
         marker.setImageResource(R.drawable.ic_launcher);
         mapView.addMarker(marker, 42.35848, -71.063736);
