@@ -275,10 +275,15 @@ mapView.addZoomLevel("level2/%col%-%row%.jpg");  // will be 125x125</pre>
 			Display display = ((Activity) getContext()).getWindowManager().getDefaultDisplay();
 			int screenWidth = display.getWidth();
 			int screenHeight = display.getHeight();
-			
-			double minimumScaleX = (double) screenWidth / (double) mapWidth;
+
+            double minimumScaleX = (double) screenWidth / (double) mapWidth;
+            //make ^slightly larger than it actually is, hack fix for max zoom out problems
+//            minimumScaleX = minimumScaleX * 1.01;
+
 			double minimumScaleY = (double) screenHeight / (double) mapHeight;
-			minScale = Math.min(minimumScaleX, minimumScaleY);                    //austin changed this from math.max to math.min
+            //make ^slightly larger than it actually is, hack fix for max zoom out problems
+//            minimumScaleY = minimumScaleY * 1.01;
+            minScale = Math.min(minimumScaleX, minimumScaleY);                    // changed this from math.max to math.min
             Log.d("austin", "min called");
         }
 		
@@ -381,7 +386,21 @@ mapView.addZoomLevel("level2/%col%-%row%.jpg");  // will be 125x125</pre>
 	 */
 	public float getZoom(){
 		return actualScale;
-	}	
+	}
+
+
+    /*
+    * Check to see if zoomed in at closest level
+    *  @return (boolean) is zoomed all the way in?
+    * */
+    public boolean isMinZoomLevel(){
+        if(zoomManager.getZoom() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 	
 	/**
 	 * Register a Runnable instance to the onReady queue.  Each Runnable will have it's run method called when the MapView has been rendered.
@@ -625,7 +644,13 @@ mapView.addZoomLevel("level2/%col%-%row%.jpg");  // will be 125x125</pre>
 			int mapHeight = zl.getMapHeight();
 			
 			double minimumScaleX = (double) getWidth() / (double) mapWidth;
+            //make ^slightly larger than it actually is, hack fix for max zoom out problems
+//            minimumScaleX = minimumScaleX * 1.01;
+
 			double minimumScaleY = (double) getHeight() / (double) mapHeight;
+            //make ^slightly larger than it actually is, hack fix for max zoom out problems
+//            minimumScaleY = minimumScaleY * 1.01;
+
 			minScale = Math.min(minimumScaleX, minimumScaleY);   //austin changed from max to min
 			
 			touchLayer.setScaleLimits(minScale, maxScale);

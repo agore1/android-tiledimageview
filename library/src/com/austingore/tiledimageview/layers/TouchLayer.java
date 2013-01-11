@@ -7,6 +7,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.austingore.tiledimageview.MapView;
 import com.austingore.tiledimageview.animation.Animator;
 import com.austingore.tiledimageview.geom.XPoint;
 import com.austingore.tiledimageview.layouts.FixedLayout;
@@ -51,6 +52,7 @@ public class TouchLayer extends FixedLayout {
 
 	private boolean secondFingerIsDown = false;
 	private boolean firstFingerIsDown = false;
+    private boolean minZoom = false;
 	
 	private Long lastTouchedAt = null;
 
@@ -304,7 +306,9 @@ public class TouchLayer extends FixedLayout {
 			firstFingerIsDown = true;
 			if (!scroller.isFinished()) {
 				scroller.abortAnimation();
-			}			
+			}
+
+            //Austin - here's where I'll need to implement double tap to zoom out.
 			long now = System.currentTimeMillis();
 			if(lastTouchedAt != null){					
 				int ellapsed = (int) (now - lastTouchedAt);
@@ -314,6 +318,18 @@ public class TouchLayer extends FixedLayout {
 					doubleTapStartScroll.setXY(getScrollX(), getScrollY());
 					doubleTapStartScroll.add(doubleTapStartOffset);
 					float destScale = constrainScale(scale * 2);
+
+                    //check to see if you're  already zoomed in all the way
+                    try {
+                        MapView parent = (MapView) getParent();
+                        minZoom = parent.isMinZoomLevel();
+                    } catch (Exception e) {
+                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    }
+                    //check if you're already at closest zoom of smallest tileset and trying to zoom in farther
+                    if(lastScale == maxScale && destScale == maxScale && minZoom == true){
+                        destScale = (float) minScale;
+                    }
 					smoothScaleTo(destScale, ZOOM_ANIMATION_DURATION);
 					if(listener != null){
 						listener.onDoubleTap(actualPoint);

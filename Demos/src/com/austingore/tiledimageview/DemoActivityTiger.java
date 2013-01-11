@@ -33,8 +33,8 @@ public class DemoActivityTiger extends Activity
         //last tile set added will be the one used for most zoomed out view
 
         mapView.addZoomLevel(1600, 1200, "tiles/tiger/tiger1600/crop_%row%_%col%.png","downsamples/tiger/tiger400.jpg", 100, 100);
-        mapView.addZoomLevel(800, 600, "tiles/tiger/tiger800/crop_%row%_%col%.png","downsamples/tiger/tiger400.jpg");
-        mapView.addZoomLevel(400, 300,"tiles/tiger/tiger400/crop_%row%_%col%.png", "downsamples/tiger/tiger400.jpg");    //does the downsample have to be the same for each?
+        mapView.addZoomLevel(800, 600, "tiles/tiger/tiger800/crop_%row%_%col%.png","downsamples/tiger/tiger400.jpg", 100, 100);
+        mapView.addZoomLevel(400, 300,"tiles/tiger/tiger400/crop_%row%_%col%.png", "downsamples/tiger/tiger400.jpg", 100, 100);    //does the downsample have to be the same for each?
              // maybe if the info was different, like map name sizes, etc.
 
         mapView.setMarkerAnchorPoints(0.5f, 1.0f);
@@ -105,7 +105,8 @@ public class DemoActivityTiger extends Activity
 
         });
 
-        FrameLayout.LayoutParams mapViewLayout = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        FrameLayout.LayoutParams mapViewLayout = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 2);
+//        FrameLayout.LayoutParams meh = new FrameLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT, 1.0f);
         frame.addView(mapView, mapViewLayout);
 
     }
